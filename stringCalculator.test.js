@@ -27,3 +27,15 @@ test('returns the sum of two comma-separated numbers', () => {
     expect(add('12,2')).toBe(14);
     expect(add('4,5')).toBe(9);
 });
+
+// test case for checking sum of 2 numbers
+test('returns the sum of two comma-separated numbers', () => {
+    expect(add('12,2')).toBe(14);
+    expect(add('4,5')).toBe(9);
+});
+
+// test case for new line in between numbers
+test('handles new lines between numbers', () => {
+    expect(add('1\n2,3')).toBe(6);
+    expect(add('4\n5\n6')).toBe(15);
+});
