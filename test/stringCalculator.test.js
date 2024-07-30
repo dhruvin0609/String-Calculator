@@ -1,7 +1,6 @@
 const add = require('../src/stringCalculator');
 
 // base test case for empty string
-
 test('returns 0 for an empty string', () => {
     expect(add('')).toBe(0);
     expect(add("abc")).toBe(0);
@@ -69,4 +68,5 @@ test('ignores numbers greater than 1000', () => {
 test('handles multiple delimiters', () => {
     expect(add('//[*][%]\n1*2%3')).toBe(6);
     expect(add('//[;][|]\n4;5|6')).toBe(15);
+    expect(add('//[;;][|]\n4;;5|6')).toBe(15);
 });
