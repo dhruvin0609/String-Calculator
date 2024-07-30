@@ -1,12 +1,10 @@
-// stringCalculator.js
-
 function add(numbers) {
-    // Check if the input is empty, null, or undefined
+    // Check if the input is empty
     if (!numbers) {
         return 0;
     }
 
-    // Determine the delimiter and the numbers to be processed
+    // Split the delimiter and the numbers to be processed
     const { delimiter, numbersString } = extractDelimiterAndNumbers(numbers);
 
     // Split the numbers string and convert to an array of numbers
@@ -15,19 +13,19 @@ function add(numbers) {
     // Check for negative numbers
     checkForNegatives(nums);
 
-    // Sum the numbers, ignoring any invalid numbers
+    // Sum the numbers
     return sumNumbers(nums);
 }
 
-// Extracts the custom delimiter and numbers from the input string
-function extractDelimiterAndNumbers(input) {
+// Extracts the custom delimiter and numbers 
+function extractDelimiterAndNumbers(numbers) {
     let delimiter = /[\n,]/; // Default delimiters are comma and newline
-    let numbersString = input;
+    let numbersString = numbers;
 
-    // Check if the input starts with a custom delimiter declaration
-    if (input.startsWith('//')) {
-        const endOfDelimiterIndex = input.indexOf('\n');
-        const delimitersPart = input.substring(2, endOfDelimiterIndex);
+    // Check if the string starts with a custom delimiter declaration
+    if (numbers.startsWith('//')) {
+        const endOfDelimiterIndex = numbers.indexOf('\n');
+        const delimitersPart = numbers.substring(2, endOfDelimiterIndex);
 
         if (delimitersPart.startsWith('[') && delimitersPart.endsWith(']')) {
             // Extract multiple delimiters
@@ -38,13 +36,13 @@ function extractDelimiterAndNumbers(input) {
             delimiter = new RegExp(`[${delimitersPart}]`);
         }
 
-        numbersString = input.substring(endOfDelimiterIndex + 1);
+        numbersString = numbers.substring(endOfDelimiterIndex + 1);
     }
 
     return { delimiter, numbersString };
 }
 
-// Splits the numbers string based on the specified delimiter
+// Splits the numbers string based on the delimiter
 function split(numbersString, delimiter) {
     return numbersString.split(delimiter).map(Number);
 }
