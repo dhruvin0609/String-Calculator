@@ -21,3 +21,9 @@ test('returns the sum of two comma-separated numbers', () => {
     expect(add('1,2')).toBe(3);
     expect(add('4,5')).toBe(9);
 });
+
+// test case for checking sum of 2 numbers
+test('returns the sum of two comma-separated numbers', () => {
+    expect(add('12,2')).toBe(14);
+    expect(add('4,5')).toBe(9);
+});

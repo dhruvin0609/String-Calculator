@@ -1,16 +1,14 @@
-
-// add function 
-
 function add(numbers) {
-    //implementation for initial test
-    if (!numbers)
+    // Check if the input is empty, null, or undefined
+    if (!numbers) {
         return 0;
+    }
 
-    // Convert the input to a number
-    let sum = Number(numbers);
+    // Split the input string by commas and convert each part to a number
+    const nums = numbers.split(',').map(Number);
 
-    // Check if the conversion resulted in NaN
-    // Return 0 if the input is not a valid number, otherwise return the number
-    return isNaN(sum) ? 0 : sum;
+    // Sum up the numbers, ignoring any invalid numbers (NaN)
+    return nums.reduce((sum, num) => sum + (isNaN(num) ? 0 : num), 0);
 }
+
 module.exports = add;
