@@ -4,8 +4,8 @@ function add(numbers) {
         return 0;
     }
 
-    // Split the input string by commas and convert each part to a number
-    const nums = numbers.split(',').map(Number);
+    // Split the input string by commas or newlines and convert each part to a number
+    const nums = numbers.split(/[\n,]/).map(Number);
 
     // Sum up the numbers, ignoring any invalid numbers (NaN)
     return nums.reduce((sum, num) => sum + (isNaN(num) ? 0 : num), 0);
