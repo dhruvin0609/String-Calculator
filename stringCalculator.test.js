@@ -4,7 +4,12 @@ const add = require('./stringCalculator');
 
 test('returns 0 for an empty string', () => {
     expect(add('')).toBe(0);
+    expect(add("abc")).toBe(0);
+    expect(add("01")).toBe(1);
+    expect(add(null)).toBe(0);
+
 });
+
 // test case for checking sum of only 1 number
 test('returns the number itself for a single number', () => {
     expect(add('1')).toBe(1);
