@@ -5,7 +5,7 @@ function add(numbers) {
     }
 
     // Determine the delimiter and the numbers to be processed
-    const { delimiter, numbersString } = toInt(numbers);
+    const { delimiter, numbersString } = toIntegerAndDelimiter(numbers);
 
     // Split the numbers string and convert to an array of numbers
     const nums = split(numbersString, delimiter);
@@ -17,7 +17,7 @@ function add(numbers) {
     return sumNumbers(nums);
 }
 
-function toInt(input) {
+function toIntegerAndDelimiter(input) {
     let delimiter = /[\n,]/; // Default delimiters are comma and newline
     let numbersString = input;
 
@@ -43,7 +43,8 @@ function checkNagatives(nums) {
 }
 
 function sumNumbers(nums) {
-    return nums.reduce((sum, num) => sum + (isNaN(num) ? 0 : num), 0);
+    return nums.reduce((sum, num) => sum + (isNaN(num) || num > 1000 ? 0 : num), 0);
+
 }
 
 module.exports = add;
