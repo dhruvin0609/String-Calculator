@@ -45,4 +45,5 @@ test('handles new lines between numbers', () => {
 test('supports different delimiters', () => {
     expect(add('//;\n1;2')).toBe(3);
     expect(add('//|\n3|4|5')).toBe(12);
+    expect(add('//|\n4|20')).toBe(24);
 });
