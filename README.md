@@ -5,18 +5,18 @@ A simple calculator that processes strings of numbers and supports custom delimi
 ## Installation
 
 1. **Clone the Repository**
-   git clone https://github.com/yourusername/string-calculator.git
+   - git clone https://github.com/yourusername/string-calculator.git
 
 2. **Navigate to the Project Directory**
-    cd string-calculator
+    - cd string-calculator
 
 3. **Install Project Dependencies**
-    npm install
+    - npm install
 
 4. **Run Tests**
-    npm test
+    - npm test
     
-    The test cases are located in the /test directory, specifically in the stringCalculator.test.js file.
+    The test cases are located in the /test/stringCalculator.test.js file.
 
 
 
