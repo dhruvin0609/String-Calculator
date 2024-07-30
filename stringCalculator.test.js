@@ -53,4 +53,5 @@ test('throws an exception for negative numbers', () => {
     expect(() => add('-1,2')).toThrow('Negative numbers not allowed: -1');
     expect(() => add('2,-3,4')).toThrow('Negative numbers not allowed: -3');
     expect(() => add('2,-3,-4')).toThrow('Negative numbers not allowed: -3, -4');
+    expect(() => add('2,-31,-4')).toThrow('Negative numbers not allowed: -31, -4');
 });
