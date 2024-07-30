@@ -1,4 +1,4 @@
-const add = require('./stringCalculator');
+const add = require('../src/stringCalculator');
 
 // base test case for empty string
 
@@ -46,6 +46,7 @@ test('supports different delimiters', () => {
     expect(add('//;\n1;2')).toBe(3);
     expect(add('//|\n3|4|5')).toBe(12);
     expect(add('//|\n4|20')).toBe(24);
+    expect(add('//***\n1***2***3')).toBe(6);
 });
 
 // test case for negative numbers
@@ -54,4 +55,11 @@ test('throws an exception for negative numbers', () => {
     expect(() => add('2,-3,4')).toThrow('Negative numbers not allowed: -3');
     expect(() => add('2,-3,-4')).toThrow('Negative numbers not allowed: -3, -4');
     expect(() => add('2,-31,-4')).toThrow('Negative numbers not allowed: -31, -4');
+});
+
+//if number is greater than 1000
+test('ignores numbers greater than 1000', () => {
+    expect(add('2,1001')).toBe(2);
+    expect(add('1000,1001,3')).toBe(1003);
+    expect(add('//;\n1002;2;1001')).toBe(2);
 });
